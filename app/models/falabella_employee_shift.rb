@@ -1,0 +1,2 @@
+class FalabellaEmployeeShift < ApplicationRecord
+end
