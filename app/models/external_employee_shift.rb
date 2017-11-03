@@ -1,0 +1,2 @@
+class ExternalEmployeeShift < ApplicationRecord
+end
