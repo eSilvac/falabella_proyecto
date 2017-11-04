@@ -1,0 +1,10 @@
+<tr id="<%= product.product_id %>">
+  <td><%= product.product_id %></td>
+  <td><%= product.value %></td>
+  <td class="text-right">
+    <div class="actions">
+      <%= link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_product_path(product), remote: true, class:"edit" %>
+      <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, product, method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>
+    </div>
+  </td>
+</tr>

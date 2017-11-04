@@ -1,0 +1,11 @@
+<tr id="<%= company.company_id %>">
+  <td><%= company.company_id %></td>
+  <td><%= company.name %></td>
+  <td><%= company.phone_number %></td>
+  <td class="text-right">
+    <div class="actions">
+      <%= link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_company_path(company), remote: true, class:"edit" %>
+      <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, company, method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>
+    </div>
+  </td>
+</tr>
