@@ -1,0 +1,26 @@
+.new-button {
+  a {
+    font-size: 16px;
+    background-color:#aad500;
+    margin: 25px;
+    border: 1.5px solid black;
+    &:hover {
+      background-color:#9CBF00;
+    }
+  }
+}
+
+.modal {
+  .modal-header {
+    color: black;
+    background-color: #aad500;
+  }
+
+  .modal-body {
+    background-color: whitesmoke;
+  }
+
+  .modal-footer {
+    background-color: #aad500;
+  }
+}

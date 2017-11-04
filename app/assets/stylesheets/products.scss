@@ -1,0 +1,19 @@
+.products {
+  #products-table {
+    .actions {
+      a {
+        visibility: hidden;
+        font-size: 13px;
+        cursor: pointer;
+        margin-left: 10px;
+        &.edit {
+          color: #D47A12;
+        }
+        &.delete {
+          color: #BD0000;
+        }
+      }
+    }
+    tr:hover .actions a { visibility: visible; }
+  }
+}
