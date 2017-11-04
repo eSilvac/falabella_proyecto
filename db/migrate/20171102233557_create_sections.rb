@@ -3,8 +3,8 @@ class CreateSections < ActiveRecord::Migration[5.1]
     create_table :sections, id: false   do |t|
       t.primary_key :section_id
       t.string :name, limit: 45, null: false
-      t.references :department, index: true
-      t.references :floor, index: true
+      t.references :department, index: true, null: false
+      t.references :floor, index: true, null: false
     end
   end
 end

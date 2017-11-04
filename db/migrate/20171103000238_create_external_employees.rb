@@ -8,9 +8,9 @@ class CreateExternalEmployees < ActiveRecord::Migration[5.1]
       t.string :address, limit: 45, null: false
       t.string :email, limit: 45, null: false
       t.integer :salary, null: false
-      t.references :company, index: true
-      t.references :section, index: true
-      t.references :shift, index: true
+      t.references :company, index: true, null: false
+      t.references :section, index: true, null: false
+      t.references :shift, index: true, null: false
     end
   end
 end
