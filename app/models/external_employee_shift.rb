@@ -9,4 +9,6 @@
 #
 
 class ExternalEmployeeShift < ApplicationRecord
+  belongs_to :external_employee
+  belongs_to :shift
 end
