@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
 
   <body>
@@ -19,6 +20,14 @@
           <li><%= link_to "Empresas Afiliadas", companies_path %></li>
           <li><a href="#">Page 2</a></li>
           <li><a href="#">Page 3</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Floors <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% Floor.all.each do |f| %>
+              <li><%= link_to "Floor #{f.floor_id}", floor_path(f), class:"dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </li>
         </ul>
       </div>
     </nav>

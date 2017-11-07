@@ -1,0 +1,32 @@
+<div class="container section" id="<%= @section.section_id %>">
+  <div class="row department-selection">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <h2>Sections</h2>
+        <% @sections.each do |section| %>
+          <%= link_to "#{section.name} Section", floor_department_section_path(section.department.floor, section.department, section), class:"btn btn-default btn-round", id: @section == section ? "active" : "" %>
+        <% end %>
+      </div>
+    </div>
+  </div><hr>
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><%= @section.name %>-Falabella Employees</h4>  
+        </div>
+        <div class="panel-body">
+          <table class="table" id="floor-departments-section-table">
+            <thead>
+              <tr>
+                <th>Employe Name</th>
+                <th class="text-center">Charge</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
