@@ -8,6 +8,7 @@
 #  email         :string(45)       not null
 #  address       :string(45)       not null
 #  customer_type :integer          not null
+#  phone_number  :string(255)      not null
 #
 
 class Customer < ApplicationRecord

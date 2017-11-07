@@ -10,6 +10,109 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171103002931) do
+
+  create_table "bills", primary_key: "bill_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "payment_type", null: false
+    t.date "date", null: false
+    t.bigint "customer_id", null: false
+    t.bigint "falabella_employee_id", null: false
+    t.index ["customer_id"], name: "index_bills_on_customer_id"
+    t.index ["falabella_employee_id"], name: "index_bills_on_falabella_employee_id"
+  end
+
+  create_table "companies", primary_key: "company_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", limit: 45, null: false
+    t.string "phone_number", limit: 20, null: false
+  end
+
+  create_table "customers", primary_key: "customer_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name", limit: 25, null: false
+    t.string "last_name", limit: 25, null: false
+    t.string "email", limit: 45, null: false
+    t.string "address", limit: 45, null: false
+    t.integer "customer_type", null: false
+    t.string "phone_number", null: false
+  end
+
+  create_table "departments", primary_key: "department_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", limit: 45, null: false
+    t.bigint "floor_id", null: false
+    t.index ["floor_id"], name: "index_departments_on_floor_id"
+  end
+
+  create_table "details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "quantity", null: false
+    t.bigint "product_id", null: false
+    t.bigint "bill_id", null: false
+    t.index ["bill_id"], name: "index_details_on_bill_id"
+    t.index ["product_id"], name: "index_details_on_product_id"
+  end
+
+  create_table "external_employee_shifts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date "date", null: false
+    t.bigint "external_employee_id", null: false
+    t.bigint "shift_id", null: false
+    t.index ["external_employee_id"], name: "index_external_employee_shifts_on_external_employee_id"
+    t.index ["shift_id"], name: "index_external_employee_shifts_on_shift_id"
+  end
+
+  create_table "external_employees", primary_key: "external_employee_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name", limit: 45, null: false
+    t.string "last_name", limit: 45, null: false
+    t.string "phone_number", limit: 20, null: false
+    t.string "address", limit: 45, null: false
+    t.string "email", limit: 45, null: false
+    t.integer "salary", null: false
+    t.bigint "company_id", null: false
+    t.bigint "section_id", null: false
+    t.bigint "shift_id", null: false
+    t.index ["company_id"], name: "index_external_employees_on_company_id"
+    t.index ["section_id"], name: "index_external_employees_on_section_id"
+    t.index ["shift_id"], name: "index_external_employees_on_shift_id"
+  end
+
+  create_table "falabella_employee_shifts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date "date", null: false
+    t.bigint "falabella_employee_id", null: false
+    t.bigint "shift_id", null: false
+    t.index ["falabella_employee_id"], name: "index_falabella_employee_shifts_on_falabella_employee_id"
+    t.index ["shift_id"], name: "index_falabella_employee_shifts_on_shift_id"
+  end
+
+  create_table "falabella_employees", primary_key: "falabella_employee_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name", limit: 45, null: false
+    t.string "last_name", limit: 45, null: false
+    t.string "phone_number", limit: 20, null: false
+    t.string "address", limit: 45, null: false
+    t.string "email", limit: 45, null: false
+    t.integer "salary", null: false
+    t.integer "type", null: false
+    t.bigint "floor_id", null: false
+    t.bigint "section_id", null: false
+    t.bigint "shift_id", null: false
+    t.index ["floor_id"], name: "index_falabella_employees_on_floor_id"
+    t.index ["section_id"], name: "index_falabella_employees_on_section_id"
+    t.index ["shift_id"], name: "index_falabella_employees_on_shift_id"
+  end
+
+  create_table "floors", primary_key: "floor_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  end
+
+  create_table "products", primary_key: "product_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.integer "value", null: false
+  end
+
+  create_table "sections", primary_key: "section_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", limit: 45, null: false
+    t.bigint "department_id", null: false
+    t.index ["department_id"], name: "index_sections_on_department_id"
+  end
+
+  create_table "shifts", primary_key: "shift_id", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.time "entry_time"
+    t.time "departure_time"
+  end
 
 end
