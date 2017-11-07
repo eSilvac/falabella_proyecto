@@ -4,7 +4,7 @@
 #
 #  department_id :integer          not null, primary key
 #  name          :string(45)       not null
-#  floor_id      :integer
+#  floor_id      :integer          not null
 #
 
 class Department < ApplicationRecord

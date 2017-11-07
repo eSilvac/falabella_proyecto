@@ -4,8 +4,8 @@
 #
 #  section_id    :integer          not null, primary key
 #  name          :string(45)       not null
-#  department_id :integer
-#  floor_id      :integer
+#  department_id :integer          not null
+#  floor_id      :integer          not null
 #
 
 class Section < ApplicationRecord

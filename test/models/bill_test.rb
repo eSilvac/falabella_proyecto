@@ -5,7 +5,7 @@
 #  bill_id                :integer          not null, primary key
 #  payment_type           :integer          not null
 #  date                   :date             not null
-#  customer_id            :integer
+#  customer_id            :integer          not null
 #  falabella_employees_id :integer          not null
 #
 
