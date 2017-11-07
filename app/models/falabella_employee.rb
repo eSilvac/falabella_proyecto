@@ -19,4 +19,7 @@ class FalabellaEmployee < ApplicationRecord
   belongs_to :floor
   belongs_to :section
   belongs_to :shift
+
+  has_many :falabella_employee_shifts
+  has_many :bills
 end
