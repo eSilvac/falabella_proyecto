@@ -2,11 +2,11 @@
 #
 # Table name: bills
 #
-#  bill_id                :integer          not null, primary key
-#  payment_type           :integer          not null
-#  date                   :date             not null
-#  customer_id            :integer          not null
-#  falabella_employees_id :integer          not null
+#  bill_id               :integer          not null, primary key
+#  payment_type          :integer          not null
+#  date                  :date             not null
+#  customer_id           :integer          not null
+#  falabella_employee_id :integer          not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
