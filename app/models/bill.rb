@@ -12,6 +12,9 @@
 class Bill < ApplicationRecord
   belongs_to :customer
 
+  belongs_to :falabella_employee
+  has_many :details
+
   enum payment_type: [:cash, :credit, :bonus]
 
 end

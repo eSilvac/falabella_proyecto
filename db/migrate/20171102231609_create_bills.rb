@@ -5,6 +5,7 @@ class CreateBills < ActiveRecord::Migration[5.1]
       t.integer :payment_type, null: false
       t.date :date, null: false
       t.references :customer, index: true, null: false
+      t.references :falabella_employee, index: true, null: false
     end
   end
 end
