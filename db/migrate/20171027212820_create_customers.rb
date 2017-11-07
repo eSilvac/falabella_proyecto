@@ -7,6 +7,7 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.string :email, limit: 45, null: false
       t.string :address, limit: 45, null: false 
       t.integer :customer_type, null: false 
+      t.string :phone_number, null: false
     end
   end
 end
