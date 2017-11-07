@@ -9,4 +9,6 @@
 #
 
 class FalabellaEmployeeShift < ApplicationRecord
+  belongs_to :shift
+  belongs_to :falabella_employee
 end
