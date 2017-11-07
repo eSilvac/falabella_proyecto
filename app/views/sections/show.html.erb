@@ -1,19 +1,30 @@
 <div class="container section" id="<%= @section.section_id %>">
-  <div class="row department-selection">
+  <div class="row section-selection">
     <div class="col-xs-12">
       <div class="text-center">
+        <h2>Floors</h2>
+        <% Floor.all.each do |f| %>
+          <%= link_to "Floor #{f.floor_id}", floor_path(f), class:"btn btn-default btn-round", id: @section.department.floor == f ? "active" : "" %>
+        <% end %>
+
+        <h2>Departments</h2>
+        <% Department.all.each do |department| %>
+          <%= link_to "#{department.name} Department", floor_department_path(department.floor, department), class:"btn btn-default btn-round", id: @section.department == department ? "active" : "" %>
+        <% end %>
+
         <h2>Sections</h2>
         <% @sections.each do |section| %>
-          <%= link_to "#{section.name} Section", floor_department_section_path(section.department.floor, section.department, section), class:"btn btn-default btn-round", id: @section == section ? "active" : "" %>
+          <%= link_to "#{section.name}", floor_department_section_path(section.department.floor, section.department, section), class:"btn btn-default btn-round", id: @section == section ? "active" : "" %>
         <% end %>
       </div>
     </div>
   </div><hr>
-  <div class="row">
-    <div class="col-xs-5">
+
+  <div class="row falabella-employees">
+    <div class="col-xs-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4><%= @section.name %>-Falabella Employees</h4>  
+          <h4>Falabella Employees</h4>  
         </div>
         <div class="panel-body">
           <table class="table" id="floor-departments-section-table">
@@ -24,6 +35,51 @@
                 <th></th>
               </tr>
             </thead>
+            <tbody>
+              <% @section.falabella_employees.each do |e| %>
+                <tr id="<%= e.falabella_emplooye_id %>">
+                  <td><%= link_to e.name, falabella_employees_path(e) %></td>
+                  <td class="text-center"><%= e.type %></td>
+                  <td class="text-right">
+                    <div class="actions">
+                      <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, e, method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-6 external-employees">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>External Employees</h4>  
+        </div>
+        <div class="panel-body">
+          <table class="table" id="floor-departments-section-table">
+            <thead>
+              <tr>
+                <th>Employe Name</th>
+                <th class="text-center">Company</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @section.external_employees.each do |e| %>
+                <tr id="<%= e.external_emplooye_id %>">
+                  <td><%= link_to e.name, external_employees_path(e) %></td>
+                  <td class="text-center"><%= e.type %></td>
+                  <td class="text-right">
+                    <div class="actions">
+                      <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, e, method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
           </table>
         </div>
       </div>

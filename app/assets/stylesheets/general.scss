@@ -26,9 +26,11 @@
       td, th {
         padding: 12px 26px;
       }
-      tr:hover {
-        background-color: whitesmoke;
-        .actions a { visibility: visible; }
+      tbody {
+        tr:hover {
+          background-color: whitesmoke;
+          .actions a { visibility: visible; }
+        }
       }
       .actions {
         a {
