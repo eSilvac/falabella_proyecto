@@ -9,9 +9,9 @@
 #  address              :string(45)       not null
 #  email                :string(45)       not null
 #  salary               :integer          not null
-#  company_id           :integer
-#  section_id           :integer
-#  shift_id             :integer
+#  company_id           :integer          not null
+#  section_id           :integer          not null
+#  shift_id             :integer          not null
 #
 
 class ExternalEmployee < ApplicationRecord

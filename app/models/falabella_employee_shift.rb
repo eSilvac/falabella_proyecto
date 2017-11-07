@@ -4,8 +4,8 @@
 #
 #  id                    :integer          not null, primary key
 #  date                  :date             not null
-#  falabella_employee_id :integer
-#  shift_id              :integer
+#  falabella_employee_id :integer          not null
+#  shift_id              :integer          not null
 #
 
 class FalabellaEmployeeShift < ApplicationRecord

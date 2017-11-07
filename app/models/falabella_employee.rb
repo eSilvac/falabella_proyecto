@@ -10,9 +10,9 @@
 #  email                 :string(45)       not null
 #  salary                :integer          not null
 #  type                  :integer          not null
-#  floor_id              :integer
-#  section_id            :integer
-#  shift_id              :integer
+#  floor_id              :integer          not null
+#  section_id            :integer          not null
+#  shift_id              :integer          not null
 #
 
 class FalabellaEmployee < ApplicationRecord
