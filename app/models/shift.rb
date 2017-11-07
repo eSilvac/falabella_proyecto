@@ -10,4 +10,7 @@
 class Shift < ApplicationRecord
   has_many :external_employees
   has_many :falabella_employees
+
+  has_many :external_employee_shifts
+  has_many :falabella_employee_shifts
 end
