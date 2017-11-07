@@ -10,9 +10,9 @@
 #  email                 :string(45)       not null
 #  salary                :integer          not null
 #  type                  :integer          not null
-#  floor_id              :integer
-#  section_id            :integer
-#  shift_id              :integer
+#  floor_id              :integer          not null
+#  section_id            :integer          not null
+#  shift_id              :integer          not null
 #
 
 class FalabellaEmployee < ApplicationRecord
@@ -22,4 +22,8 @@ class FalabellaEmployee < ApplicationRecord
 
   has_many :falabella_employee_shifts
   has_many :bills
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

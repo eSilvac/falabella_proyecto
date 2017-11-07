@@ -3,8 +3,8 @@
 # Table name: shifts
 #
 #  shift_id       :integer          not null, primary key
-#  entry_time     :date
-#  departure_time :date
+#  entry_time     :time
+#  departure_time :time
 #
 
 require 'test_helper'
