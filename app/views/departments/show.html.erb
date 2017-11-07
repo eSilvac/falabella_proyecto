@@ -2,6 +2,11 @@
   <div class="row department-selection">
     <div class="col-xs-12">
       <div class="text-center">
+        <h2>Floors</h2>
+        <% Floor.all.each do |f| %>
+          <%= link_to "Floor #{f.floor_id}", floor_path(f), class:"btn btn-default btn-round", id: @department.floor == f ? "active" : "" %>
+        <% end %>
+
         <h2>Departments</h2>
         <% @departments.each do |department| %>
           <%= link_to "#{department.name} Department", floor_department_path(department.floor, department), class:"btn btn-default btn-round", id: @department == department ? "active" : "" %>

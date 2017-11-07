@@ -6,4 +6,7 @@ Rails.application.routes.draw do
       resources :sections, only: [:show, :destroy]
     end
   end
+
+  resources :falabella_employees
+  resources :external_employees
 end
