@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-
-  resources :companies
-  resources :products
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :companies, except: [:show]
+  resources :products, except: [:show]
+  resources :floors, only: [:show, :index] do
+    resources :departments, only: [:show, :create, :destroy] do
+      resources :sections, only: [:show, :destroy]
+    end
+  end
 end

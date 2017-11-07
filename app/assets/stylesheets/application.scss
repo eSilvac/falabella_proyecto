@@ -4,3 +4,15 @@
 @import "companies";
 @import "products";
 @import "general";
+@import "floors";
+@import "departments";
+
+body {
+  background-color: #B3AB95;
+  font-family: 'Open Sans', sans-serif;
+}
+
+hr {
+  border-top: 1px solid black;
+  margin: 30px 0;
+}

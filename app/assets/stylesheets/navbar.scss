@@ -2,7 +2,8 @@ $bgDefault      : #080a00;
 $bgHighlight    : #aad500;
 $colDefault     : #aad500;
 $colHighlight   : #0d0606;
-$dropDown       : false;
+$dropDown       : true;
+
 .navbar {
   border-radius: 0;
   border: 2px solid $colDefault;
@@ -10,7 +11,9 @@ $dropDown       : false;
   .navbar-brand {
     font-size: 30px;
     font-weight: bold;
-    color: $colDefault;}
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {
@@ -22,9 +25,12 @@ $dropDown       : false;
         &:hover, &:focus {
           color: $colHighlight; }}}
     @if ($dropDown) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;}
       .dropdown-menu {
         background-color: $bgDefault;
-        border-color: $bgHighlight;
+        border: 2px solid $bgHighlight;
         .dropdown-item {
           color: $colDefault;
           &:hover, &:focus, &.active {

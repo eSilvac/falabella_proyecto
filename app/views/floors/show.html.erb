@@ -1,0 +1,82 @@
+<div class="container floor" id="<%= @floor.floor_id %>">
+  <div class="row floor-selection">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <h2>Floors</h2>
+        <% @floors.each do |f| %>
+          <%= link_to "Floor #{f.floor_id}", floor_path(f), class:"btn btn-default btn-round", id: @floor == f ? "active" : "" %>
+        <% end %>
+      </div>
+    </div>
+  </div><hr>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Empleados</h4>  
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Cargo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1234567</td>
+                <td><a href="#">Susana Montoya</a></td>
+                <td>Cajero</td>
+              </tr>
+              <tr>
+                <td>1234567</td>
+                <td>Valentina Silva</td>
+                <td>Cajero</td>
+              </tr>
+              <% @floor.falabella_employees.each do |employ| %>
+                <tr>
+                  <td><%= employ.falabella_employee_id %></td>
+                  <td><%= link_to employ.name, falabella_employee_path(employ) %></td>
+                  <td><%= employ.type %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Departamentos</h4>  
+        </div>
+        <div class="panel-body">
+          <table class="table" id="floor-departments-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th class="text-center"># De Secciones</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @floor.departments.each do |d| %>
+                <tr id="<%= d.department_id %>">
+                  <td><%= link_to d.name, floor_department_path(@floor, d) %></td>
+                  <td class="text-center"><%= d.sections.count %></td>
+                  <td class="text-right">
+                      <div class="actions">
+                        <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, floor_department_path(@floor, d), method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>
+                      </div>
+                    </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
