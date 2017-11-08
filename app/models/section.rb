@@ -8,7 +8,6 @@
 #
 
 class Section < ApplicationRecord
-  belongs_to :floor
   belongs_to :department
 
   has_many :external_employees
