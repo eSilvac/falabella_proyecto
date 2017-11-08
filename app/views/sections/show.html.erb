@@ -37,9 +37,9 @@
             </thead>
             <tbody>
               <% @section.falabella_employees.each do |e| %>
-                <tr id="<%= e.falabella_emplooye_id %>">
+                <tr id="<%= e.falabella_employee_id %>">
                   <td><%= link_to e.name, falabella_employees_path(e) %></td>
-                  <td class="text-center"><%= e.type %></td>
+                  <td class="text-center"><%= e.employee_type %></td>
                   <td class="text-right">
                     <div class="actions">
                       <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, e, method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>
@@ -69,9 +69,9 @@
             </thead>
             <tbody>
               <% @section.external_employees.each do |e| %>
-                <tr id="<%= e.external_emplooye_id %>">
+                <tr id="<%= e.external_employee_id %>">
                   <td><%= link_to e.name, external_employees_path(e) %></td>
-                  <td class="text-center"><%= e.type %></td>
+                  <td class="text-center"><%= e.company.name %></td>
                   <td class="text-right">
                     <div class="actions">
                       <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, e, method: :delete, remote: true, class:"delete", data: {confirm: 'Are you sure?' }  %>

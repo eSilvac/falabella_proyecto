@@ -8,7 +8,7 @@ class CreateFalabellaEmployees < ActiveRecord::Migration[5.1]
         t.string :address, limit: 45, null: false
         t.string :email, limit: 45, null: false
         t.integer :salary, null: false
-        t.integer :type, null: false
+        t.integer :employee_type, null: false
         t.references :floor, index: true, null: false
         t.references :section, index: true, null: false
         t.references :shift, index: true, null: false
