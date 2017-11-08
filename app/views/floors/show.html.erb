@@ -2,9 +2,14 @@
   <div class="row floor-selection">
     <div class="col-xs-12">
       <div class="text-center">
-        <h2>Floors</h2>
+        <h3>Floors</h3>
         <% @floors.each do |f| %>
           <%= link_to "Floor #{f.floor_id}", floor_path(f), class:"btn btn-default btn-round", id: @floor == f ? "active" : "" %>
+        <% end %>
+
+        <h3>Departments</h3>
+        <% @floor.departments.each do |department| %>
+          <%= link_to "#{department.name}", floor_department_path(department.floor, department), class:"btn btn-default btn-round" %>
         <% end %>
       </div>
     </div>
@@ -21,25 +26,15 @@
               <tr>
                 <th>Cedula</th>
                 <th>Nombre</th>
-                <th>Cargo</th>
+                <th class="text-right">Cargo</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1234567</td>
-                <td><a href="#">Susana Montoya</a></td>
-                <td>Cajero</td>
-              </tr>
-              <tr>
-                <td>1234567</td>
-                <td>Valentina Silva</td>
-                <td>Cajero</td>
-              </tr>
               <% @floor.falabella_employees.each do |employ| %>
                 <tr>
                   <td><%= employ.falabella_employee_id %></td>
                   <td><%= link_to employ.name, falabella_employee_path(employ) %></td>
-                  <td><%= employ.employee_type %></td>
+                  <td class="text-right"><%= employ.employee_type %></td>
                 </tr>
               <% end %>
             </tbody>
