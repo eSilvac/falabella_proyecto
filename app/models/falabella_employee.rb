@@ -23,6 +23,8 @@ class FalabellaEmployee < ApplicationRecord
   has_many :falabella_employee_shifts
   has_many :bills
 
+  enum type: [:cashier, :cleaner, :seller]
+
   def name
     "#{first_name} #{last_name}"
   end
