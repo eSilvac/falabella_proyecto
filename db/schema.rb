@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20171103002931) do
     t.string "address", limit: 45, null: false
     t.string "email", limit: 45, null: false
     t.integer "salary", null: false
-    t.integer "type", null: false
+    t.integer "employee_type", null: false
     t.bigint "floor_id", null: false
     t.bigint "section_id", null: false
     t.bigint "shift_id", null: false
