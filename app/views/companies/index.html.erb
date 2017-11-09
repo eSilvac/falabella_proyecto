@@ -8,18 +8,24 @@
     <div class="new-button">
       <%= link_to "Nueva Empresas Afiliada", new_company_path, remote: true, class: "btn btn-default pull-right" %>
     </div>
-    <table class="table" id="companies-table">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Nombre</th>
-          <th>Numero</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render "companies_table", companies: @companies %>
-      </tbody>
-    </table>
+  </div>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table class="table" id="companies-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Numero</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render "companies_table", companies: @companies %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
