@@ -7,6 +7,9 @@
 @import "floors";
 @import "departments";
 @import "sections";
+@import "falabella_employees";
+@import "external_employees";
+
 
 body {
   background-color: #B3AB95;
@@ -16,4 +19,8 @@ body {
 hr {
   border-top: 1px solid black;
   margin: 30px 0;
+}
+hr.style1 {
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
 }

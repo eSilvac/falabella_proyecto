@@ -1,0 +1,28 @@
+<div class="container falabella-employees">
+  <div class="row">
+    <h1 class="text-center">Falabella Employees</h1>
+    <%= link_to "Sign Up Falabella Employee", new_falabella_employee_path, remote: true, class:"btn btn-success pull-right" %>
+  </div>
+  <div class="row">
+    <div class="col-xs-5">
+      <div class="panel panel-default employees-list">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-4">
+              <h3 class="text-center">id</h3>
+            </div>
+            <div class="col-xs-8">
+              <h3 class="text-center">Name</h3>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <%= render "employees_list", employees: @employees %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-7 show">
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,4 @@
+$('.external-employees .employees-list .panel-body').empty().append('<%= j render "external_employees/employees_list", employees: @employees %>');
+$('#employee-modal').modal('hide');
+$('.external-employees .show').empty().append('<%= j render "external_employees/show_employee", employee: @employee %>');
+

@@ -1,0 +1,56 @@
+.external-employees {
+  .employees-list {
+    margin-top: 45px;
+    .panel-heading {
+      h3 {
+        margin:0;
+      }
+    }
+    .panel-body {
+      .row { 
+        padding: 0 15px;
+        .name, .id {
+          padding: 15px 0;
+          border-bottom: 1px solid #ddd;
+          color: black;
+          &:hover {
+            text-decoration:none;
+          }
+        }
+        &:hover {
+          a {
+            color: #A0C800;
+          }
+          background-color: whitesmoke;
+        }
+      }
+    }
+  }
+  .show {
+    padding: 0;
+    .employee-info {
+      margin-top: 45px;
+      h3 {
+        margin: 0;
+      }
+      .photo {
+        margin: 20px 30px;
+        margin-right: 0;
+        border: 1px solid black;
+        height: 300px;
+      }
+      .info {
+        margin-top: 20px;
+        .shift {
+          margin-top: 5px;
+          p {
+            margin:0;
+          }
+        }
+        .place {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

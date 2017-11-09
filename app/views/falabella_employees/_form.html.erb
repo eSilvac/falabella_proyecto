@@ -1,0 +1,91 @@
+<div id="employee-modal" class="modal fade modal-employee" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title text-center"><%= title %></h2>
+      </div>
+      <%= form_for @employee, remote: true do |f| %>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "form-control" %>
+          </div>
+        
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :phone_number %>
+                <%= f.text_field :phone_number, class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :address %>
+                <%= f.text_field :address, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :employee_type %>
+            <%= f.select :employee_type, FalabellaEmployee.employee_types.keys.map { |w| [w.humanize, w] }, { prompt: "--Employee Type--" }, class: "form-control" %>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :shift %>
+                <%= select_tag "falabella_employee[shift_id]", options_from_collection_for_select(Shift.all, :shift_id, :shift_time, @employee.shift_id), {class: 'form-control', prompt: "--Select Shift--"} %>
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :salary %>
+                <%= f.number_field :salary, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :floor %>
+                <%= select_tag "falabella_employee[floor_id]", options_from_collection_for_select(Floor.all, :floor_id, :floor_id, @employee.floor_id), {class: 'form-control', prompt: "--Select Floor--"} %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :section %>
+                <%= select_tag "falabella_employee[section_id]", options_from_collection_for_select(Section.all, :section_id, :name, @employee.section_id), {class: 'form-control', prompt: "--Select Section--"} %>
+              </div>
+            </div>
+          </div>
+
+          <%= f.submit class: "btn btn-primary btn-block btn-lg" %>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+</div>
