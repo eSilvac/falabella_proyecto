@@ -1,0 +1,72 @@
+<div class="panel panel-default employee-info">
+  <div class="panel-heading">
+    <h3 class="text-center"><%= employee.name %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-4 photo">
+      <p>Future Photo</p>
+      </div>
+      <div class="col-xs-7 info">
+
+        <div class="row personal-info">
+          <div class="col-xs-6 text-center">
+            <span>Id Number</span><br>
+            <span><strong><%= employee.id %></strong></span><br><br>
+            <span>Email</span><br>
+            <span><strong><%= employee.email %></strong></span>
+          </div>
+          <div class="col-xs-6 text-center">
+            <span>Phone Number</span><br>
+            <span><strong><%= employee.phone_number %></strong></span><br><br>
+            <span>Address</span><br>
+            <span><strong><%= employee.address %></strong></span>
+          </div>
+        </div>
+
+        <hr class="style1">
+
+        <div class="row position">
+          <div class="col-xs-6 text-center">
+            <span>Employe Charge</span><br>
+            <span><strong><%= employee.employee_type %></strong></span>
+          </div> 
+          <div class="col-xs-6 text-center">
+            <span>Employe Salary</span><br>
+            <span><strong><%= employee.salary %>$</strong></span>
+          </div> 
+        </div>
+
+        <hr class="style1">
+
+        <div class="row place">
+          <div class="col-xs-6 text-center">
+            <span>Actual Floor</span><br>
+            <span><strong><%= link_to employee.floor.floor_id, floor_path(employee.floor) %></strong></span>
+          </div>
+          <div class="col-xs-6 text-center">
+            <span>Actual Section</span><br>
+            <span><strong><%= link_to employee.section.name, floor_department_section_path(employee.floor, employee.section.department, employee.section) %></strong></span>
+          </div>
+        </div>
+
+        <hr class="style1">
+
+        <div class="row shift">
+          <div class="col-xs-6 text-center">
+            <span>Shift Start</span><br>
+            <span><strong><%= employee.shift.entry_time.strftime("%I:%M%p") %></strong></span>
+          </div>
+          <div class="col-xs-6 text-center">
+            <span>Shift End</span><br>
+            <span><strong><%= employee.shift.departure_time.strftime("%I:%M%p") %></strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <%= link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_falabella_employee_path(employee), remote: true, class:"btn btn-warning" %>
+    <%= link_to '<span class="glyphicon glyphicon-trash"></span> Borrar'.html_safe, employee, method: :delete, remote: true, class:"btn btn-danger", data: {confirm: 'Are you sure?' }  %>
+  </div>
+</div>

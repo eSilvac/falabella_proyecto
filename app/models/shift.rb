@@ -13,4 +13,8 @@ class Shift < ApplicationRecord
 
   has_many :external_employee_shifts
   has_many :falabella_employee_shifts
+
+  def shift_time
+    "#{entry_time.strftime("%I:%M%p")} - #{departure_time.strftime("%I:%M%p")}"
+  end
 end

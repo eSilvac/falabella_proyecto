@@ -1,0 +1,91 @@
+<div id="employee-modal" class="modal fade modal-employee" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title text-center"><%= title %></h2>
+      </div>
+      <%= form_for @employee, remote: true do |f| %>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :first_name %>
+                <span class="error-message" id="first_name" style="display: none"></span>
+                <%= f.text_field :first_name, class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :last_name %>
+                <span class="error-message" id="last_name" style="display: none"></span>
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email %>
+            <span class="error-message" id="email" style="display: none"></span>
+            <%= f.text_field :email, class: "form-control" %>
+          </div>
+        
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :phone_number %>
+                <span class="error-message" id="phone_number" style="display: none"></span>
+                <%= f.text_field :phone_number, class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :address %>
+                <span class="error-message" id="address" style="display: none"></span>
+                <%= f.text_field :address, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :company %>
+            <span class="error-message" id="first_name" style="display: none"></span>
+            <%= select_tag "external_employee[company_id]", options_from_collection_for_select(Company.all, :company_id, :name, @employee.company_id), {class: 'form-control', prompt: "--Select Company--"} %>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :shift %>
+                <span class="error-message" id="shift" style="display: none"></span>
+                <%= select_tag "external_employee[shift_id]", options_from_collection_for_select(Shift.all, :shift_id, :shift_time, @employee.shift_id), {class: 'form-control', prompt: "--Select Shift--"} %>
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="form-group">
+                <%= f.label :salary %>
+                <span class="error-message" id="salary" style="display: none"></span>
+                <%= f.number_field :salary, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.label :section %>
+            <span class="error-message" id="last_name" style="display: none"></span>
+            <%= select_tag "external_employee[section_id]", options_from_collection_for_select(Section.all, :section_id, :name, @employee.section_id), {class: 'form-control', prompt: "--Select Section--"} %>
+          </div>
+
+          <%= f.submit class: "btn btn-primary btn-block btn-lg" %>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<% employees.each do |employee| %>
+  <div class="row" id="<%= employee.external_employee_id %>">
+    <%= link_to external_employee_path(employee),remote: true, class:"col-xs-4 text-center id" do %>
+      <span><%= employee.external_employee_id %></span>
+    <% end %>
+
+    <%= link_to external_employee_path(employee),remote: true, class:"col-xs-8 text-center name" do %>
+      <span><%= employee.name %></span>
+    <% end %>
+  </div>
+<% end %>
